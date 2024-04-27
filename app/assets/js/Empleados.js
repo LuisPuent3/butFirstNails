@@ -26,7 +26,7 @@ $(document).ready(function() {
 function cargarCategorias() {
     // Realizar una solicitud AJAX al archivo obtener_categorias.php
     $.ajax({
-        url: '../app/assets/php/RecuperarCategoriaEmpleado.php',
+        url: './app/assets/php/RecuperarCategoriaEmpleado.php',
         method: 'GET',
         dataType: 'json',
         success: function(categorias) {
@@ -60,7 +60,7 @@ $(document).ready(function() {
         $('#empleadoId').val(empleadoId);
         // Realizar una solicitud AJAX para obtener los datos del empleado por su ID
         $.ajax({
-            url: '../app/assets/php/ObtenerEmpleadoPorId.php',
+            url: './app/assets/php/ObtenerEmpleadoPorId.php',
             method: 'GET',
             dataType: 'json',
             data: { id: idEmpleado },
@@ -119,7 +119,7 @@ $(document).ready(function() {
     function cargarTodosLosServicios() {
         // Realizar la solicitud AJAX al script PHP para obtener todos los servicios
         $.ajax({
-            url: '../app/assets/php/RecuperarAllServices.php', // Ruta del script PHP para obtener todos los servicios
+            url: './app/assets/php/RecuperarAllServices.php', // Ruta del script PHP para obtener todos los servicios
             type: 'GET',
             dataType: 'json', // Tipo de datos esperado en la respuesta
             success: function(response) {
@@ -158,7 +158,7 @@ $(document).ready(function() {
     function cargarSubcategorias(categoriaId) {
         // Realizar la solicitud AJAX al script PHP para obtener las subcategorías
         $.ajax({
-            url: '../app/assets/php/RecuperarSubcatEmpleado.php', // Ruta del script PHP
+            url: './app/assets/php/RecuperarSubcatEmpleado.php', // Ruta del script PHP
             type: 'GET',
             data: { categoria: categoriaId }, // Enviar el ID de la categoría como parámetro
             dataType: 'json', // Tipo de datos esperado en la respuesta
@@ -197,7 +197,7 @@ $(document).ready(function() {
     function cargarServicios(subcategoriaId) {
         // Realizar la solicitud AJAX al script PHP para obtener los servicios
         $.ajax({
-            url: '../app/assets/php/RecuperarServicios.php', // Ruta del script PHP
+            url: './app/assets/php/RecuperarServicios.php', // Ruta del script PHP
             type: 'GET',
             data: { subcategoria: subcategoriaId }, // Enviar el ID de la subcategoría como parámetro
             dataType: 'json', // Tipo de datos esperado en la respuesta
@@ -295,7 +295,7 @@ $(document).ready(function() {
     // Función para cargar los empleados
     function cargarEmpleados() {
         $.ajax({
-            url: '../app/assets/php/ObtenerEmpleado.php',
+            url: './app/assets/php/ObtenerEmpleado.php',
             method: 'GET',
             dataType: 'json',
             success: function(empleados) {
@@ -321,7 +321,7 @@ $(document).ready(function() {
     
                     // Realizar una solicitud AJAX para obtener los servicios del empleado
                     $.ajax({
-                        url: '../PHP/ObtenerServicioEmpleado.php?idEmpleado=' + empleado.id_empleado,
+                        url: './PHP/ObtenerServicioEmpleado.php?idEmpleado=' + empleado.id_empleado,
                         method: 'GET',
                         dataType: 'json',
                         success: function(servicios) {
@@ -395,7 +395,7 @@ $(document).ready(function() {
         if (confirm('¿Estás seguro de que quieres eliminar este empleado y sus servicios relacionados?')) {
             // Realizar una solicitud AJAX para eliminar el empleado y sus servicios
             $.ajax({
-                url: '../app/assets/php/EliminarEmpleado.php',
+                url: './app/assets/php/EliminarEmpleado.php',
                 method: 'POST',
                 data: { id_empleado: empleadoId },
                 success: function(response) {
