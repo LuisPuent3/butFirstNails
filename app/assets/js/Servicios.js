@@ -41,7 +41,7 @@ $(document).ready(function(){
         if(confirm("¿Está seguro de que desea eliminar la categoría '" + categoria + "'?")) {
             // Enviar solicitud para eliminar la categoría
             $.ajax({
-                url: '../PHP/RegistrarCategoria.php',
+                url: '../app/assets/php/RegistrarCategoria.php',
                 method: 'POST',
                 data: { idCategoria: idCategoria }, // Enviar el ID de la categoría al servidor
                 success: function(response) {
@@ -157,7 +157,7 @@ $(document).on('click', '.eliminar-subcategoria-btn', function(event){
     if(confirm("¿Está seguro de que desea eliminar la subcategoría '" + subcategoria + "'?")) {
         // Enviar solicitud para eliminar la subcategoría
         $.ajax({
-            url: '../PHP/RegistrarSubcat.php',
+            url: '../app/assets/php/RegistrarSubcat.php',
             method: 'POST',
             data: { idSubcategoria: idSubcategoria }, // Enviar el ID de la subcategoría al servidor
             success: function(response) {
@@ -192,7 +192,7 @@ $(document).on('click', '.eliminar-servicio-btn', function(event){
     if(confirm("¿Está seguro de que desea eliminar el servicio '" + servicio + "'?")) {
         // Enviar solicitud para eliminar el servicio
         $.ajax({
-            url: '../PHP/RegistrarServicio.php',
+            url: '../app/assets/php/RegistrarServicio.php',
             method: 'POST',
             data: { idServicio: idServicio }, // Enviar el ID del servicio al servidor
             success: function(response) {
@@ -262,7 +262,7 @@ document.getElementById('subcategorias').addEventListener('click', function(even
 
         // Enviar una solicitud AJAX al servidor para obtener los servicios relacionados
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', '../PHP/ObtenerServicios.php', true);
+        xhr.open('POST', '../app/assets/php/ObtenerServicios.php', true);
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xhr.onload = function() {
             if (xhr.status === 200) {
@@ -292,7 +292,7 @@ $(document).ready(function() {
 function obtenerSubcategorias(categoria) {
     $.ajax({
         type: 'POST',
-        url: '../PHP/ObtenerSubCat.php',
+        url: '../app/assets/php/ObtenerSubCat.php',
         data: { categoria: categoria },
         success: function(response) {
             $('#subcategorias').html(response);
